@@ -50,26 +50,32 @@
                     
                     <ul class="mb-0" role="menu">
 
+                                
                                 <li role="menuitem">
-                                    <a href="dataset-versions.html#section-1" title="Scroll to Version 0.9">Version 0.9</a>
+                                    <a href="dataset-versions.html#section-7" title="Scroll to Version 1.5">Version 1.5</a>
                                 </li>
-                                <li role="menuitem">
-                                    <a href="dataset-versions.html#section-2" title="Scroll to Version 1.0">Version 1.0</a>
-                                </li>
-                                <li role="menuitem">
-                                    <a href="dataset-versions.html#section-3" title="Scroll to Version 1.1">Version 1.1</a>
-                                </li>
-                                <li role="menuitem">
-                                    <a href="dataset-versions.html#section-4" title="Scroll to Version 1.2">Version 1.2</a>
-                                </li>
-                                <li role="menuitem">
-                                    <a href="dataset-versions.html#section-5" title="Scroll to Version 1.3">Version 1.3</a>
-                                </li>
+
                                 <li role="menuitem">
                                     <a href="dataset-versions.html#section-6" title="Scroll to Version 1.4">Version 1.4</a>
                                 </li>
+
                                 <li role="menuitem">
-                                    <a href="dataset-versions.html#section-7" title="Scroll to Version 1.5">Version 1.5</a>
+                                    <a href="dataset-versions.html#section-5" title="Scroll to Version 1.3">Version 1.3</a>
+                                </li>
+
+                                <li role="menuitem">
+                                    <a href="dataset-versions.html#section-4" title="Scroll to Version 1.2">Version 1.2</a>
+                                </li>
+
+                                <li role="menuitem">
+                                    <a href="dataset-versions.html#section-3" title="Scroll to Version 1.1">Version 1.1</a>
+                                </li>
+
+                                <li role="menuitem">
+                                    <a href="dataset-versions.html#section-2" title="Scroll to Version 1.0">Version 1.0</a>
+                                </li>
+<li role="menuitem">
+                                    <a href="dataset-versions.html#section-1" title="Scroll to Version 0.9">Version 0.9</a>
                                 </li>
 
 
@@ -85,53 +91,36 @@
 
                     
 
-                                        <h2 id="section-1">Version 0.9</h2>
-                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2018-11-21</strong><br><strong>DOI:</strong> <a href="https://doi.org/10.25720/veda-c09w">10.25720/veda-c09w</a></p>
-<p>This early release has been obtained by manually processing the raw CSV files obtained from the Delosis server, according to this <a href="assets/docs/psytools-qc-sop-v0.9.pdf" target="_blank" rel="noopener">procedure</a>. One of the main objectives of this effort was to assess the quality of the collected data, detect errors such as subject identifier misassignments and fix these errors.</p>
-<p>Psytools files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/0.9/psytools/</tt></p>
+                                        
+<h2 id="section-7">cVEDA Dataset Version 1.5</h2>
+                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2021-06-07</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c15k">10.25720/veda-c15k</a></p>
+<p>Data can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.5/</tt></p>
+<p>As usual, we also provide an excerpt of the recruitment files maintained by each recruitment centre, which provide reference values for both the date of birth and sex of each subject. These reference values have been re-checked and should be used instead of the values found in Psytools files. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification. In this release we have added an excerpt of the follow-up recruitment files, which provide information on the type of follow-up (FU1 or FU2) and age at follow-up.</p>
+<p>The de-identified excerpts of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.5/recruitment/</tt></p>
 <h4>Errors and caveats</h4>
-<p>Among other issues, we have found issues in the pseudonymization of a dozen participants. We recommend you wait for release 1.1.</p>
+<ul>
+<li>Some identifiers found in Psytools files are missing from the recruitment file. You may choose to disregard such data as they might disappear from future releases.</li>
+<li>Some participants listed in the recruitment file lack any Psytools data. We might never be able to identify data associated to these participants.</li>
+</ul>
 </div>
 </div>
                                         <hr>
-                                        <h2 id="section-2">Version 1.0</h2>
-                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2018-11-21</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c10e">10.25720/veda-c10e</a></p>
-<p>This is the first release of c-VEDA Psytools baseline (BL) data obtained from the automated pipe-line that runs on the c-VEDA server:</p>
-<ol>
-<li>A Python script downloads raw CSV files from the <a href="https://www.delosis.com/">Delosis server</a> into directory <tt>/cveda/databank/RAW/PSC1/psytools/</tt>:<br><a href="https://github.com/cveda/cveda_databank/blob/master/psytools/cveda_psytools_download.py">cveda_psytools_download.py</a></li>
-<li>Another Python script further de-identifies data. It converts subject identifiers from PSC1 to PSC2 and removes dates or converts them to age in days. The output goes into directory <tt>/cveda/databank/RAW/PSC2/psytools/</tt>:<br><a href="https://github.com/cveda/cveda_databank/blob/master/psytools/cveda_psytools_deidentify.py">cveda_psytools_deidentify.py</a></li>
-<li>Finally an R script based on an R library provided by Delosis derives the CSV files, switching from long format to wide format, eliminating multiple sessions for a single subject. The output goes into directory <tt>/cveda/databank/processed/psytools/</tt>:<br><a href="https://github.com/cveda/cveda_r/blob/master/R/cveda_psytools_derive.R">cveda_psytools_derive.R</a><br><a href="https://github.com/delosis/psytools/blob/master/R/psytools_task_derivations.R">psytools_task_derivations.R</a></li>
-</ol>
-<p>At this point most subject identifier misassignments seem to have been addressed, at least for baseline (BL) data.</p>
-<p>Psytools files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.0/psytools/</tt></p>
-<p>In addition to Psytools data, we provide an excerpt of the recruitment files maintained by each recruitment centre. These recruitment files provide reference values for both the date of birth and sex of each subject. They have been checked and re-checked multiple times. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification. The reference value of sex is published and should be used in preference to values found in Psytools files.</p>
-<p>The de-identified excerpt of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.0/recruitment_files/</tt></p>
+<h2 id="section-6">Version 1.4</h2>
+                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2019-10-16</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c14j">10.25720/veda-c14j</a></p>
+<p>This is the first release of the c-VEDA dataset including toxicology and neuroimaging data, both baseline and follow-up.</p>
+<p>Data can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.4/</tt></p>
+<p>For this release we have improved the derivation functions of the Psytools data, the CSV files should be easier to read. In future releases we might provide data in SPSS format that would include all the information in the codebooks. For now the codebooks are available separately:<br><tt>sftp://cveda.nimhans.ac.in/data/1.4/documentation/psytools/data_dictionary/</tt></p>
+<p>As usual we also provide an excerpt of the recruitment files maintained by each recruitment centre, which provide reference values for both the date of birth and sex of each subject. These reference values have been re-checked and should be used instead of the values found in Psytools files. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification.</p>
+<p>The de-identified excerpt of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.4/recruitment/</tt></p>
 <h4>Errors and caveats</h4>
-<p>Among other issues, we have found issues in the pseudonymization of a dozen participants. We recommend you wait for release 1.1.</p>
+<ul>
+<li>Some identifiers found in Psytools files are missing from the recruitment file. You may choose to disregard such data as they might disappear from future releases.</li>
+<li>Some participants listed in the recruitment file lack any Psytools data. We might never be able to identify data associated to these participants.</li>
+</ul>
 </div>
 </div>
                                         <hr>
-                                        <h2 id="section-3">Version 1.1</h2>
-                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2019-04-17</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c11f">10.25720/veda-c11f</a></p>
-<p>This is the second release of c-VEDA Psytools baseline (BL) data obtained from the automated pipe-line that runs on the c-VEDA server, and the first we recommend for scientific research purposes. The whole c-VEDA team have worked hard to compare previous releases 0.9 and 1.0 and investigate and fix discrepancies. The derivation R library <a href="https://github.com/delosis/psytools/blob/master/R/psytools_task_derivations.R">psytools_task_derivations.R</a> provided by Delosis has been updated accordingly to calculate scores, fix scales and address issues that have been found so far.</p>
-<p>Psytools files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.1/psytools/</tt></p>
-<p>We also provide as usual an excerpt of the recruitment files maintained by each recruitment centre, which provide reference values for both the date of birth and sex of each subject. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification.</p>
-<p>The de-identified excerpt of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.1/recruitment_files/</tt></p>
-<h4>Errors and caveats</h4>
-<p>Two questionnaires have been truncated (<em>CORSI</em> and <em>MINI5</em>). Please use a later release to if you need these questionnaires.</p>
-</div>
-</div>
-                                        <hr>
-                                        <h2 id="section-4">Version 1.2</h2>
-                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2019-05-28</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c12g">10.25720/veda-c12g</a></p>
-<p>This release of c-VEDA Psytools baseline (BL) fixes a an issue we have detected in release 1.1, namely two truncated CSV files (CORSI and MINI5).</p>
-<p>Psytools files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.2/psytools/</tt></p>
-<p>We also provide as usual an excerpt of the recruitment files maintained by each recruitment centre, which provide reference values for both the date of birth and sex of each subject. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification.</p>
-<p>The de-identified excerpt of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.2/recruitment_files/</tt></p>
-</div>
-</div>
-                                        <hr>
-                                        <h2 id="section-5">Version 1.3</h2>
+<h2 id="section-5">Version 1.3</h2>
                                         <div class="block--article__content"><div class=""><p><strong>Release date: 2019-06-26</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c13h">10.25720/veda-c13h</a></p>
 <p>This is the first release of the full c-VEDA Psytools baseline (BL) data <strong>not</strong> limited to the initial <em>frozen</em> 5000 participants.</p>
 <p>Psytools files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.3/psytools/</tt></p>
@@ -148,33 +137,49 @@
 </div>
 </div>
                                         <hr>
-                                        <h2 id="section-6">Version 1.4</h2>
-                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2019-10-16</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c14j">10.25720/veda-c14j</a></p>
-<p>This is the first release of the c-VEDA dataset including toxicology and neuroimaging data, both baseline and follow-up.</p>
-<p>Data can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.4/</tt></p>
-<p>For this release we have improved the derivation functions of the Psytools data, the CSV files should be easier to read. In future releases we might provide data in SPSS format that would include all the information in the codebooks. For now the codebooks are available separately:<br><tt>sftp://cveda.nimhans.ac.in/data/1.4/documentation/psytools/data_dictionary/</tt></p>
-<p>As usual we also provide an excerpt of the recruitment files maintained by each recruitment centre, which provide reference values for both the date of birth and sex of each subject. These reference values have been re-checked and should be used instead of the values found in Psytools files. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification.</p>
-<p>The de-identified excerpt of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.4/recruitment/</tt></p>
-<h4>Errors and caveats</h4>
-<ul>
-<li>Some identifiers found in Psytools files are missing from the recruitment file. You may choose to disregard such data as they might disappear from future releases.</li>
-<li>Some participants listed in the recruitment file lack any Psytools data. We might never be able to identify data associated to these participants.</li>
-</ul>
+<h2 id="section-4">Version 1.2</h2>
+                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2019-05-28</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c12g">10.25720/veda-c12g</a></p>
+<p>This release of c-VEDA Psytools baseline (BL) fixes a an issue we have detected in release 1.1, namely two truncated CSV files (CORSI and MINI5).</p>
+<p>Psytools files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.2/psytools/</tt></p>
+<p>We also provide as usual an excerpt of the recruitment files maintained by each recruitment centre, which provide reference values for both the date of birth and sex of each subject. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification.</p>
+<p>The de-identified excerpt of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.2/recruitment_files/</tt></p>
 </div>
 </div>
                                         <hr>
-
-                                        <hr>
-                                        <h2 id="section-7">cVEDA Dataset Version 1.5</h2>
-                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2021-06-07</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c15k">10.25720/veda-c15k</a></p>
-<p>Data can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.5/</tt></p>
-<p>As usual, we also provide an excerpt of the recruitment files maintained by each recruitment centre, which provide reference values for both the date of birth and sex of each subject. These reference values have been re-checked and should be used instead of the values found in Psytools files. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification. In this release we have added an excerpt of the follow-up recruitment files, which provide information on the type of follow-up (FU1 or FU2) and age at follow-up.</p>
-<p>The de-identified excerpts of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.5/recruitment/</tt></p>
+<h2 id="section-3">Version 1.1</h2>
+                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2019-04-17</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c11f">10.25720/veda-c11f</a></p>
+<p>This is the second release of c-VEDA Psytools baseline (BL) data obtained from the automated pipe-line that runs on the c-VEDA server, and the first we recommend for scientific research purposes. The whole c-VEDA team have worked hard to compare previous releases 0.9 and 1.0 and investigate and fix discrepancies. The derivation R library <a href="https://github.com/delosis/psytools/blob/master/R/psytools_task_derivations.R">psytools_task_derivations.R</a> provided by Delosis has been updated accordingly to calculate scores, fix scales and address issues that have been found so far.</p>
+<p>Psytools files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.1/psytools/</tt></p>
+<p>We also provide as usual an excerpt of the recruitment files maintained by each recruitment centre, which provide reference values for both the date of birth and sex of each subject. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification.</p>
+<p>The de-identified excerpt of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.1/recruitment_files/</tt></p>
 <h4>Errors and caveats</h4>
-<ul>
-<li>Some identifiers found in Psytools files are missing from the recruitment file. You may choose to disregard such data as they might disappear from future releases.</li>
-<li>Some participants listed in the recruitment file lack any Psytools data. We might never be able to identify data associated to these participants.</li>
-</ul>
+<p>Two questionnaires have been truncated (<em>CORSI</em> and <em>MINI5</em>). Please use a later release to if you need these questionnaires.</p>
+</div>
+</div>
+                                        <hr>
+<h2 id="section-2">Version 1.0</h2>
+                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2018-11-21</strong><br><strong>DOI: </strong><a href="https://doi.org/10.25720/veda-c10e">10.25720/veda-c10e</a></p>
+<p>This is the first release of c-VEDA Psytools baseline (BL) data obtained from the automated pipe-line that runs on the c-VEDA server:</p>
+<ol>
+<li>A Python script downloads raw CSV files from the <a href="https://www.delosis.com/">Delosis server</a> into directory <tt>/cveda/databank/RAW/PSC1/psytools/</tt>:<br><a href="https://github.com/cveda/cveda_databank/blob/master/psytools/cveda_psytools_download.py">cveda_psytools_download.py</a></li>
+<li>Another Python script further de-identifies data. It converts subject identifiers from PSC1 to PSC2 and removes dates or converts them to age in days. The output goes into directory <tt>/cveda/databank/RAW/PSC2/psytools/</tt>:<br><a href="https://github.com/cveda/cveda_databank/blob/master/psytools/cveda_psytools_deidentify.py">cveda_psytools_deidentify.py</a></li>
+<li>Finally an R script based on an R library provided by Delosis derives the CSV files, switching from long format to wide format, eliminating multiple sessions for a single subject. The output goes into directory <tt>/cveda/databank/processed/psytools/</tt>:<br><a href="https://github.com/cveda/cveda_r/blob/master/R/cveda_psytools_derive.R">cveda_psytools_derive.R</a><br><a href="https://github.com/delosis/psytools/blob/master/R/psytools_task_derivations.R">psytools_task_derivations.R</a></li>
+</ol>
+<p>At this point most subject identifier misassignments seem to have been addressed, at least for baseline (BL) data.</p>
+<p>Psytools files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.0/psytools/</tt></p>
+<p>In addition to Psytools data, we provide an excerpt of the recruitment files maintained by each recruitment centre. These recruitment files provide reference values for both the date of birth and sex of each subject. They have been checked and re-checked multiple times. The reference date of birth is not published, rather we use it internally to calculate the age in days associated to dates during de-identification. The reference value of sex is published and should be used in preference to values found in Psytools files.</p>
+<p>The de-identified excerpt of the recruitment files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/1.0/recruitment_files/</tt></p>
+<h4>Errors and caveats</h4>
+<p>Among other issues, we have found issues in the pseudonymization of a dozen participants. We recommend you wait for release 1.1.</p>
+</div>
+</div>
+                                        <hr>
+<h2 id="section-1">Version 0.9</h2>
+                                        <div class="block--article__content"><div class=""><p><strong>Release date: 2018-11-21</strong><br><strong>DOI:</strong> <a href="https://doi.org/10.25720/veda-c09w">10.25720/veda-c09w</a></p>
+<p>This early release has been obtained by manually processing the raw CSV files obtained from the Delosis server, according to this <a href="assets/docs/psytools-qc-sop-v0.9.pdf" target="_blank" rel="noopener">procedure</a>. One of the main objectives of this effort was to assess the quality of the collected data, detect errors such as subject identifier misassignments and fix these errors.</p>
+<p>Psytools files can be downloaded via SFTP:<br><tt>sftp://cveda.nimhans.ac.in/data/0.9/psytools/</tt></p>
+<h4>Errors and caveats</h4>
+<p>Among other issues, we have found issues in the pseudonymization of a dozen participants. We recommend you wait for release 1.1.</p>
 </div>
 </div>
 
