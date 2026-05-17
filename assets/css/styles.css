@@ -309,6 +309,10 @@ tr:nth-child(even) td { background: #f8fbfb; }
   gap: 14px;
 }
 .publication-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: start;
   padding: 20px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -320,15 +324,40 @@ tr:nth-child(even) td { background: #f8fbfb; }
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-items: center;
   margin-bottom: 10px;
 }
-.publication-card__meta span {
+.publication-card__meta span,
+.publication-action {
   padding: 4px 8px;
   border-radius: 999px;
-  background: var(--soft);
-  color: var(--accent-dark);
   font-size: 13px;
   font-weight: 750;
+  line-height: 1.6;
+}
+.publication-card__meta span {
+  background: var(--soft);
+  color: var(--accent-dark);
+}
+.publication-action {
+  border: 0;
+  background: var(--soft);
+  color: var(--accent-dark);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.publication-action:hover,
+.publication-action[aria-expanded="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+.publication-action:disabled {
+  cursor: not-allowed;
+  color: var(--muted);
+  background: #f7f9f9;
 }
 .publication-card h2 {
   margin: 0 0 10px;
@@ -337,6 +366,28 @@ tr:nth-child(even) td { background: #f8fbfb; }
 }
 .publication-card__authors { margin: 0 0 8px; color: var(--muted); }
 .publication-card__journal { margin: 0; font-weight: 700; }
+.publication-card__abstract {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.publication-card__abstract h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: var(--accent-dark);
+}
+.publication-card__abstract p { margin: 0; color: var(--muted); }
+.publication-card__badge-wrapper {
+  min-width: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+.publication-card__badge-wrapper .altmetric-embed,
+.publication-card__badge-wrapper .__dimensions_badge_embed__ { min-height: 64px; }
 .featured-publications article {
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
@@ -352,4 +403,6 @@ tr:nth-child(even) td { background: #f8fbfb; }
   .publication-hero { display: block; }
   .publication-scholar { margin-top: 16px; }
   .publication-tools { position: static; }
+  .publication-card { grid-template-columns: 1fr; }
+  .publication-card__badge-wrapper { padding-top: 0; }
 }
