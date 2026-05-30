@@ -232,21 +232,24 @@ tr:nth-child(even) td { background: #f8fbfb; }
   background: var(--soft);
 }
 .site-footer p { width: min(1120px, 100%); margin: 0 auto 4px; }
-.publication-scholar {
-  flex: 0 0 auto;
+.publication-scholar-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 38px;
-  padding: 7px 12px;
-  border-radius: 6px;
-  background: var(--accent);
-  color: white;
-  font-size: 13px;
-  font-weight: 750;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--accent-dark);
   text-decoration: none;
 }
-.publication-scholar:hover { background: var(--accent-dark); color: white; }
+.publication-scholar-icon:hover { background: #e9f1f0; }
+.publication-scholar-icon img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 0;
+}
 .publication-tools {
   position: sticky;
   top: 84px;
@@ -260,8 +263,7 @@ tr:nth-child(even) td { background: #f8fbfb; }
 }
 .publication-search-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
 }
 .publication-tools label {
@@ -300,7 +302,17 @@ tr:nth-child(even) td { background: #f8fbfb; }
   background: var(--accent);
   color: white;
 }
-.publication-count { margin: 8px 0 0; color: var(--muted); font-size: 13px; font-weight: 700; }
+.publication-count-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+.publication-count { color: var(--muted); }
 .publication-grid {
   display: grid;
   gap: 10px;
@@ -420,8 +432,6 @@ tr:nth-child(even) td { background: #f8fbfb; }
   .brand { min-width: 0; }
   .kcl_right, .kcl_left, .person-card img { float: none; display: block; margin: 12px 0; max-width: 100%; }
   table { display: block; overflow-x: auto; }
-  .publication-search-row { grid-template-columns: 1fr; }
-  .publication-scholar { margin-top: 16px; }
   .publication-tools { position: static; }
   .publication-card { grid-template-columns: 1fr; }
   .publication-card__badge-wrapper { padding-top: 0; }
